@@ -1,4 +1,51 @@
-<hello name="{{ name }}"></hello>
-<p>
-  Start editing to see some magic happen :)
-</p>
+<div class="container">
+  <div class="searchcontainer">
+    <div class="inner">
+      <form>
+        <div class="row">
+          <div class="col-md-4">
+              
+          </div>
+          <div class="col-md-4">
+            <input type="text" class="form-control mt-1" 
+            #loc
+            style="width:100%"
+            placeholder="Location.."/>
+          </div>
+          <div class="col-md-4">
+              <input type="button" class="btn btn-warning mt-1" 
+              
+              (click)="getCourses(loc.value)"
+              value="Search"/>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div 
+  *ngFor="let c of courses" class="card mx-auto d-block mt-2 shadow-sm">
+      <div class="row">
+        <div class="col-md-3">
+          <img src="{{c.c_id}}"  height="100px" width="100%"/>
+        </div>
+        <div class="col-md-6">
+          <div class="row pl-2 mt-3">
+            <div class="col-md-6">Course name: {{c.c_name}}</div>
+            <div class="col-md-6">Duration  : {{c.c_duration}}</div>
+          </div>
+          <div class="row pl-2">
+            <div class="col-md-6">Fees : Rs {{c.c_fee}}</div>
+            <div class="col-md-6">Seats available  : {{c.c_vacancy}}</div>
+          </div>
+          <div class="row pl-2">
+            <div class="col-md-6">Location : {{c.tc_location}}</div>
+            <div class="col-md-6"></div>
+          </div>
+        </div>
+        <div class="col-md-3 p-4">
+            <button class="btn btn-sm btn-primary" >Show Details</button>
+        </div>
+      </div>
+      
+  </div>
+</div>
